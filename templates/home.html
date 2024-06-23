@@ -11,8 +11,8 @@
         <div class="input-container">
             <label for="image-input" class="form-label">Enter Name</label>
             <div class="input-group">
-                <input class="form-control form-control-lg" id="image-input" name="image" type="file" accept="image/*">
-                <button type="button" class="btn btn-outline-secondary" onclick="clearFileInput()">Clear</button>
+                <input class="form-control form-control-lg" id="image-input" name="name" type="text">
+                
             </div>
             <label for="image-input" class="form-label">Select an image</label>
             <div class="input-group">
@@ -23,17 +23,16 @@
         <button type="submit" class="btn btn-primary btn-lg btn-block">Generate ASCII Art</button>
     </form>
 
-    <div class="output-container">
-        <h2 class="text-center mb-3">ASCII Art Output</h2>
-        <pre id="ascii-output" class="text-center">{{ ascii_art }}</pre>
+    {% if uploaded_image_url %}
+    <h2>Uploaded Image:</h2>
+    <img src="{{ uploaded_image_url }}" alt="Uploaded Image">
+{% endif %}
 
-        <div class="text-center mt-4">
-            <button class="btn btn-info" onclick="shareToInstagram()">Share to Instagram Story</button>
-            <a id="download-link" class="btn btn-success ml-2" download="ascii_art.png">Download</a>
-        </div>
-    </div>
-</div>
-
+{% if ascii_art %}
+    <h2>ASCII Art:</h2>
+    <pre>{{ ascii_art }}</pre>
+{% endif %}
+    
 <script>
 function clearFileInput() {
     var fileInput = document.getElementById('image-input');
