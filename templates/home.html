@@ -9,6 +9,11 @@
     <form method="POST" enctype="multipart/form-data" class="mb-4">
         {% csrf_token %}
         <div class="input-container">
+            <label for="image-input" class="form-label">Enter Name</label>
+            <div class="input-group">
+                <input class="form-control form-control-lg" id="image-input" name="image" type="file" accept="image/*">
+                <button type="button" class="btn btn-outline-secondary" onclick="clearFileInput()">Clear</button>
+            </div>
             <label for="image-input" class="form-label">Select an image</label>
             <div class="input-group">
                 <input class="form-control form-control-lg" id="image-input" name="image" type="file" accept="image/*">
